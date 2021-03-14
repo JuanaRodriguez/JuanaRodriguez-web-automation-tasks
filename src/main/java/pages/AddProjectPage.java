@@ -1,24 +1,31 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AddProjectPage extends BasePage {
+    @FindBy(id = "edit_project_modal_field_name")
+    @CacheLookup
+    WebElement nameField;
 
-    private By nameField = By.id("edit_project_modal_field_name");
-    private By addButton = By.cssSelector("button[type='submit']");
+    @FindBy(css = "button[type='submit']")
+    @CacheLookup
+    WebElement addButton;
 
-    public AddProjectPage(WebDriver driver) {
-        super(driver);
+    public AddProjectPage() {
+        PageFactory.initElements(driver, this);
     }
 
     public AddProjectPage setProjectName(String projectName) {
-        driver.findElement(nameField).sendKeys(projectName);
+        nameField.sendKeys(projectName);
         return this;
     }
 
     public HomePage clickAddProjectButton() {
-        driver.findElement(addButton).click();
-        return new HomePage(driver);
+        addButton.click();
+        return new HomePage();
     }
+
 }

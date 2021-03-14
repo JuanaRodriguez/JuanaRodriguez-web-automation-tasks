@@ -12,6 +12,5 @@ public class LoginTest extends BaseTests {
         HomePage homePage = loginPage.clickLoginButton();
 
         assertTrue(homePage.headerPage.isSettingDisplayed(), "Settings is not displayed");
-
     }
 }
