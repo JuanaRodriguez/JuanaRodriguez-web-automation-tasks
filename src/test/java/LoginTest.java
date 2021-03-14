@@ -11,7 +11,7 @@ public class LoginTest extends BaseTests {
         loginPage.setPassword("P@ssw0rd");
         HomePage homePage = loginPage.clickLoginButton();
 
-        assertTrue(homePage.getTitleText().contains("Today"), "Incorrect Message");
+        assertTrue(homePage.headerPage.isSettingDisplayed(), "Settings is not displayed");
 
     }
 }

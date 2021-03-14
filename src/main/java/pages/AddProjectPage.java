@@ -3,24 +3,22 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.TimeUnit;
+public class AddProjectPage extends BasePage {
 
-public class AddProjectPage {
-    private WebDriver driver;
     private By nameField = By.id("edit_project_modal_field_name");
-    private By addButton = By.cssSelector("button.ist_button:nth-child(2)");
+    private By addButton = By.cssSelector("button[type='submit']");
 
     public AddProjectPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public void setName(String name) {
-        driver.findElement(nameField).sendKeys(name);
+    public AddProjectPage setProjectName(String projectName) {
+        driver.findElement(nameField).sendKeys(projectName);
+        return this;
     }
 
-    public AddProjectPage clickAddProjectButton() {
+    public HomePage clickAddProjectButton() {
         driver.findElement(addButton).click();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        return new AddProjectPage(driver);
+        return new HomePage(driver);
     }
 }

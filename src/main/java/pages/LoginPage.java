@@ -3,16 +3,14 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.TimeUnit;
+public class LoginPage extends BasePage {
 
-public class LoginPage {
-    private WebDriver driver;
     private By emailField = By.id("email");
     private By passwordField = By.id("password");
-    private By loginButton = By.cssSelector("button.submit_btn.ist_button.ist_button_red.sel_login");
+    private By loginButton = By.cssSelector("button.submit_btn");
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void setEmail(String email) {
@@ -25,7 +23,6 @@ public class LoginPage {
 
     public HomePage clickLoginButton() {
         driver.findElement(loginButton).click();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         return new HomePage(driver);
     }
 }

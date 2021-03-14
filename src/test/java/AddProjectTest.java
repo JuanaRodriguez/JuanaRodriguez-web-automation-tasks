@@ -1,5 +1,6 @@
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.AddProjectPage;
 import pages.HomePage;
 
 import static org.testng.Assert.assertTrue;
@@ -17,11 +18,14 @@ public class AddProjectTest extends BaseTests {
 
     @Test
     public void testAddProject() {
-        homePage.clickAddProjectLink();
-        addProjectPage.setName("FirstProject");
-        addProjectPage.clickAddProjectButton();
+        String projectName = "FirstProject";
+        AddProjectPage addProjectPage = homePage.leftMenuPage.clickAddProjectButton();
+        addProjectPage.setProjectName(projectName);
+        homePage = addProjectPage.clickAddProjectButton();
 
-        assertTrue(projectPage.getTitleText().contains("FirstProject"), "Incorrect Message");
-        assertTrue(projectPage.getAddTaskText().contains("Add task"), "Incorrect Message");
+        assertTrue(homePage.contentAreaPage.isProjectNameDisplayed(projectName));
+        assertTrue(homePage.contentAreaPage.getProjectName().contains("FirstProject"), "Incorrect Message");
+        assertTrue(homePage.contentAreaPage.getAddTaskText().contains("Add task"), "Incorrect Message");
+
     }
 }
