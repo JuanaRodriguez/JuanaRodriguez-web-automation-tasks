@@ -7,15 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LeftMenuPage extends BasePage {
 
-    @FindBy(css = "#list_holder > div.sidebar_expansion_panel.expansion_panel.expansion_panel--expanded > div.expansion_panel__header > div > button > svg")
+    @FindBy(css="#list_holder > div.sidebar_expansion_panel.expansion_panel.expansion_panel--expanded > div.expansion_panel__header > div > button > svg")
     @CacheLookup
     WebElement addButton;
 
-    public LeftMenuPage() {
+    public LeftMenuPage(){
+
         PageFactory.initElements(driver, this);
     }
 
-    public AddProjectPage clickAddProjectButton() {
+    public AddProjectPage clickAddProjectButton(){
         addButton.click();
         return new AddProjectPage();
     }

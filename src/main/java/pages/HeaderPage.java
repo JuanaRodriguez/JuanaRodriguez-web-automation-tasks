@@ -10,11 +10,12 @@ public class HeaderPage extends BasePage {
     @CacheLookup
     WebElement settings;
 
-    public HeaderPage() {
+    public HeaderPage(){
+        super();
         PageFactory.initElements(driver, this);
     }
 
-    public boolean isSettingDisplayed() {
-        return settings.isDisplayed();
+    public boolean isSettingDisplayed(){
+        return  settings.isDisplayed();
     }
 }

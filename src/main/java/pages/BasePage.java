@@ -8,7 +8,7 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public BasePage() {
+    public BasePage(){
         this.driver = DriverManager.getInstance().getDriver();
         this.wait = DriverManager.getInstance().getWait();
     }

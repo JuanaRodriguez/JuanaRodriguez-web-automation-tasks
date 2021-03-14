@@ -1,18 +1,17 @@
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AddProjectPage;
-import pages.HomePage;
+import utils.GradleProperties;
 
 import static org.testng.Assert.assertTrue;
 
 public class AddProjectTest extends BaseTests {
 
-    private HomePage homePage;
-
     @BeforeMethod
     public void login() {
-        loginPage.setEmail("jfr.rodriguezz@gmail.com");
-        loginPage.setPassword("P@ssw0rd");
+        loginPage.setEmail(GradleProperties.getInstance().getEmail());
+        loginPage.setPassword(GradleProperties.getInstance().getPassword());
         homePage = loginPage.clickLoginButton();
     }
 
@@ -26,6 +25,10 @@ public class AddProjectTest extends BaseTests {
         assertTrue(homePage.contentAreaPage.isProjectNameDisplayed(projectName));
         assertTrue(homePage.contentAreaPage.getProjectName().contains("FirstProject"), "Incorrect Message");
         assertTrue(homePage.contentAreaPage.getAddTaskText().contains("Add task"), "Incorrect Message");
+    }
+
+    @AfterMethod
+    public void deleteProject(){
 
     }
 }

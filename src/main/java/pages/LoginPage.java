@@ -5,21 +5,22 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends BasePage{
 
-    @FindBy(id = "email")
+    @FindBy(id="email")
     @CacheLookup
     WebElement emailField;
 
-    @FindBy(id = "password")
+    @FindBy(id="password")
     @CacheLookup
     WebElement passwordField;
 
-    @FindBy(css = "button.submit_btn")
+    @FindBy(css="button.submit_btn")
     @CacheLookup
     WebElement loginButton;
 
     public LoginPage() {
+
         PageFactory.initElements(driver, this);
     }
 
