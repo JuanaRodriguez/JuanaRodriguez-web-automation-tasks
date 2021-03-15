@@ -26,7 +26,8 @@ public class ConfigProperties {
         }
         return instance;
     }
-
+/*La clase abstracta InputStream declara los metodos para leer datos desde una fuente concreta y es la
+clasa base de la mayor parte de los flujos de entrada en java.io.*/
     private void initialize() {
         properties = new Properties();
         try {

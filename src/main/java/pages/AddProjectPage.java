@@ -17,7 +17,6 @@ public class AddProjectPage extends BasePage{
     WebElement addButton;
 
     public AddProjectPage() {
-
         PageFactory.initElements(driver, this);
     }
 
